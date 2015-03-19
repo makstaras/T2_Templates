@@ -1,0 +1,86 @@
+<head>
+    <title>My first project on meteor</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Your own simple blog</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Blogs <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Calendar</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mainContent">
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Blog</button>
+                {{>blog}}
+                {{>listblogs}}
+            </div>
+
+            <div class="col-md-6">
+                <p>
+                	<button type="button" class="btn btn-lg btn-primary" disabled="disabled">Calendar</button>
+                	{{>main}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        
+    </div>
+</body>
+
+<template name="blog">
+    <div class="row">
+        <form class="form-horizontal" id="blogForm">
+            <div class="form-group">
+                <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" id="blogTitle" class="form-control" placeholder="Title of our post">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputBody" class="col-sm-2 control-label">Body</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="blogBody" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success btn-block">Submit post</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
+
+<template name="listblogs">
+    <div class="container">
+        <div class="row">
+            {{#each blogs}}
+            <h2>{{title}}</h2>
+            <p>{{body}}</p>
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="main">
+	<div id="calendar">
+	</div>
+</template>
